@@ -12,4 +12,5 @@ export class PermissionserviceService implements CanActivate  {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
     return this.auth.isAuth();
   }
+ 
 }

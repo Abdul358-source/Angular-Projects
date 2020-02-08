@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-10">
+        Projects Id
+      </div>
+      <div class="col-md-2">
+        <ng-content></ng-content>
+      </div>
+    </div> 
+  </div>
+  <div class="card-body">
+    <table class="table table-borderless" [hidden]="hidedetails">
+      <tr>
+        <th>UserId</th>
+        <td>{{project.userId}}</td>
+      </tr>
+      <tr>
+        <th>Id</th>
+        <td>{{project.id}}</td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td>{{project.title}}</td>
+      </tr>
+      <tr>
+        <th>Body</th>
+        <td>{{project.body}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="card-footer mb-2">
+    <button class="btn btn-warning" (click)="OnEditClick($event, i)" data-toggle="modal" data-target="#editModal">Edit</button>
+    <button class="btn btn-danger ml-1" (click)="OnDeleteClick($event, i)" data-toggle="modal" data-target="#deleteModal">Delete</button>
+  </div>
+
+</div>

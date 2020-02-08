@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import {LocalstorageService} from '../localstorage.service';
 @Component({
   selector: 'app-usernavheader',
   templateUrl: './usernavheader.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsernavheaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storage : LocalstorageService, private router : Router) { }
 
   ngOnInit() {
+  
   }
-
+  logout(): void {
+    this.storage.clear();
+    this.router.navigate(['']);
+  }
+  
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges, ViewChild, ViewChildren,QueryList } from '@angular/core';
 import {ProjectsService} from '../../projects.service';
-import {Projects} from 'src/app/projects'
+import {Projects} from 'src/app/projects';
+import {UserprojectchildComponent} from '../userprojectchild/userprojectchild.component'
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -13,6 +14,21 @@ export class ProjectsComponent implements OnChanges, OnInit {
     editIndex:any = null;
     deleteProjects : Projects = new Projects();
     deleteIndex:any  = null;
+
+  onHideShowDetails(event){
+    this.projectservice.toggleDetails();
+  }
+
+
+  isAllChecked:boolean = false;
+  @ViewChildren("prj") projs : QueryList<UserprojectchildComponent>;
+
+  isAllCheckedChange(event){
+    let proj =  this.projs.toArray();
+    for(let i=0; i<proj.length; i++){
+      proj[i].isAllCheckedChange(this.isAllChecked);
+    }
+  }
 
   constructor (private projectservice : ProjectsService) { }
 
@@ -92,4 +108,6 @@ export class ProjectsComponent implements OnChanges, OnInit {
       });
   }
 
+
+  
 }

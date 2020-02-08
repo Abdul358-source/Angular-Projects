@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Observer, Subject } from 'rxjs';
 import { Projects } from './projects';
 import { map } from 'rxjs/operators';
 
@@ -9,7 +9,20 @@ import { map } from 'rxjs/operators';
 })
 export class ProjectsService {
 
-  constructor( private httpclient : HttpClient) { }
+  public MySubject:Subject<boolean>;
+  private MyObservers:Observer<boolean>[]=[];
+
+  constructor( private httpclient : HttpClient) {
+    this.MySubject = new Subject<boolean>(); 
+
+   }
+
+  hidedetails:boolean = false;
+  
+  toggleDetails(){
+    this.hidedetails=!this.hidedetails;
+   this.MySubject.next(this.hidedetails);
+  }
 
   getAllProjects(): Observable<Projects[]>{
 
@@ -45,4 +58,5 @@ export class ProjectsService {
   DeleteAllProjects(UserId:any):Observable<any>{
     return this.httpclient.delete<any>("https://jsonplaceholder.typicode.com/posts?UserId=" + UserId);
   }
+  
 }

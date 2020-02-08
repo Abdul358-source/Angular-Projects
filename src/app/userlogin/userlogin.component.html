@@ -1,9 +1,9 @@
-<div class="container">
+<!--<div class="container">
 <form>
     <h1>Login</h1>
   <div class="form-group">
     <label for="userOne">UserName:</label>
-    <input type="text" class="form-control" id="userOne" placeholder="Enter Your UserName" name="userOne">
+    <input type="email" class="form-control" id="email" placeholder="Enter Your Email Id" name="email">
   </div>
   <div class="form-group">
     <label for="pwd">Password:</label>
@@ -11,6 +11,26 @@
   </div>
 
   <span class="text-danger">{{loginError}}&nbsp;</span>
-  <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+  <button type="button" class="btn btn-primary" (click)="login(myForm)">Login</button>
 </form>
+</div>-->
+
+<div class="container">
+<div class="col-md-6 offset-md-3">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm">
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" formControlName="username" id="username" />
+      </div>
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="password" />
+      </div>
+      <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+      </div>
+  </form>
 </div>
+</div>
+

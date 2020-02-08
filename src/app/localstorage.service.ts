@@ -6,6 +6,9 @@ const KEY = 'eAuditStorage';
   providedIn: 'root'
 })
 export class LocalstorageService {
+  logout() {
+    throw new Error("Method not implemented.");
+  }
 
   constructor() { }
 
@@ -26,4 +29,5 @@ export class LocalstorageService {
   eAuditObject(): any {
     return JSON.parse(sessionStorage.getItem(KEY)) || {};
   }
+  
 }
