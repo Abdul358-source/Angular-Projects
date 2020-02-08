@@ -1,25 +1,30 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {TestBed, ComponentFixture} from '@angular/core/testing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UserloginComponent} from './userlogin.component';
 
-import { UserloginComponent } from './userlogin.component';
+describe("userlogintest", ()=>{
+    let component : UserloginComponent;
+    let fixture : ComponentFixture<UserloginComponent>;
+    beforeEach(async() => {
+        TestBed.configureTestingModule({
+            declarations : [UserloginComponent],
+            imports : [FormsModule, ReactiveFormsModule]
+        }).compileComponents()
 
-describe('UserloginComponent', () => {
-  let component: UserloginComponent;
-  let fixture: ComponentFixture<UserloginComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UserloginComponent ]
+        fixture = TestBed.createComponent(UserloginComponent);
+        component = fixture.componentInstance;
     })
-    .compileComponents();
-  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UserloginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    it("logintest", ()=>{
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+        expect(component).toBeDefined();
+    });
+
+    it("is form valid when empty", ()=>{
+        let name = component.loginForm.controls["username"];
+        name.setValue("abdul");
+        let passwords =  component.loginForm.controls["password"];
+        passwords.setValue("eeeboys12345");
+        expect(component.loginForm.valid).toBeTruthy();
+    });
+})

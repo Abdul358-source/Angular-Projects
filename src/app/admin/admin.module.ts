@@ -8,6 +8,8 @@ import {ProjectsComponent} from './projects/projects.component';
 import {FormsModule} from '@angular/forms';
 import { UserdashboardTwoComponent } from './userdashboard-two/userdashboard-two.component'
 import { NumberToWordsPipe } from '../number-to-words.pipe';
+import {UserprojectchildComponent} from './userprojectchild/userprojectchild.component';
+import {CheckboxprinterComponent} from './checkboxprinter/checkboxprinter.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { NumberToWordsPipe } from '../number-to-words.pipe';
     UseraboutComponent,
     ProjectsComponent,
     UserdashboardTwoComponent,
-    NumberToWordsPipe
+    NumberToWordsPipe,
+    UserprojectchildComponent,
+    CheckboxprinterComponent
   ],
   imports: [
     CommonModule,
     FormsModule
   ],
-  exports : [UserdashboardComponent, MyprofileComponent, UseraboutComponent, ProjectsComponent, UserdashboardTwoComponent],
+  exports : [UserdashboardComponent, MyprofileComponent, UseraboutComponent, ProjectsComponent, UserdashboardTwoComponent, UserprojectchildComponent, CheckboxprinterComponent],
   //providers : [UserdashboardService]
 })
 export class AdminModule { }

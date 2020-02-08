@@ -104,6 +104,7 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserdashboardTwoComponent } from './admin/userdashboard-two/userdashboard-two.component';
 import { AgGridModule } from 'ag-grid-angular';
 import {UserInterceptor} from './userinterceptor';
+import { UsersignupComponent } from './usersignup/usersignup.component';
 
 
 
@@ -205,9 +206,7 @@ import {UserInterceptor} from './userinterceptor';
     UsernavbarComponent,
     UsernavheaderComponent,
     UserloginComponent,
-    
-    
-    
+    UsersignupComponent,
   ],
   imports: [
     BrowserModule,

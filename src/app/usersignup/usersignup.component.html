@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+     <div class="col-md-8 col-xl-6 mx-auto">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmitClick()">
+        <div class="card">
+           <div class="card-header">
+              SignUp
+           </div>
+           <div class="card-body">
+                 <div class="form-group row" formGroupName="personName">
+                    <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name" formControlName="firstName" 
+                       [ngClass]="{ 'is-invalid': signUpForm.get('personName.firstName').invalid && ( signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || signUpForm.submitted) ,
+                       'is-valid': signUpForm.get('personName.firstName').valid && ( signUpForm.get('personName.firstName').dirty || signUpForm.get('personName.firstName').touched || signUpForm.submitted) }">
+                    </div>
+                 </div>
+                 <div class="form-group row" formGroupName="personName">
+                    <label for="lastname" class="col-sm-2 col-form-label">lastname</label>
+                    <div class="col-sm-10">
+                       <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name" formControlName="lastName">
+                    </div>
+                 </div>
+                 <div class="form-group row">
+                  <label for="email" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="phonenumber" name="phonenumber" placeholder="enter your phone number" formControlName="mobile">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="phone" class="col-sm-2 col-form-label">Phone Number</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="enter your email id" formControlName="email">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="password" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="confirmpassword" class="col-sm-2 col-form-label">Confirm Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" formControlName="confirmpassword">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="gender" class="col-md-2 col-form-label">Gender</label>
+                  <div class="col-md-10" >
+                    <div class="form-check-label form-check-inline" *ngFor="let gender of genders">
+                      <input type="radio" name="gender" [id]="gender" [value]="gender" class="form-check-input"  formControlName="gender">
+                      <label [for]="gender" class="form-check-label">{{gender}}</label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label for="countryId" class="col-md-4 col-form-label">Country</label>
+                  <div class="col-md-8">
+                    <select name="countryId" id="countryId" class="form-control" formControlName="CountryId">
+                      <option value="null">Please Select</option>
+                      <option *ngFor="let country of countries" [value]="country.CountryID">
+                        {{country.CountryName}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="countryId" class="col-md-4 col-form-label">Skill:</label>
+                  <div class="col-md-8" formArrayName="skills">
+                    <div class="row" *ngFor="let skill of signUpForm.get('skills').controls; let i = index;" [formGroupName]="i">
+                      <div class="col-md-5">
+                        <input type="text" name="skillName" id="skiName" placeholder="Skill Name" formControlName="skillName" class="form-control">
+                      </div>
+                      <div class="col-md-4">
+                        <select class="form-control" name="level" id="level" formControlName="level">
+                          <option value="null">Please Select</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="professional">professional</option>
+                          <option value="professional">professional</option>
+                          <option value="expert">expert</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <button type="button" class="btn btn-danger" (click)="OnRemoveClick(i)">
+                          remove
+                        </button>
+                      </div>
+                      
+                    </div>  
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success" (click)="onAddClick()">Add Skills</button>
+              
+           </div>
+           <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+           </div>
+        </div>
+       {{signUpForm.value | json}}
+      </form>
+     </div>
+  </div>
+</div>

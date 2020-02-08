@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {LocalstorageService} from '../localstorage.service';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -9,18 +9,34 @@ import {LocalstorageService} from '../localstorage.service';
   styleUrls: ['./userlogin.component.css']
 })
 export class UserloginComponent implements OnInit {
+  
+  loginForm: FormGroup;
 
- 
-  constructor(private storage : LocalstorageService, private router : Router) { }
-
+  constructor(
+    private fb: FormBuilder,
+    private storage: LocalstorageService
+  ) { }
+    
+  
   ngOnInit() {
+    this.loginForm = this.fb.group({
+      username: this.fb.control('', [Validators.required]),
+      password: this.fb.control('', [Validators.required])
+    });
+
+
     if (this.storage.get('loggedIn')){
-      this.router.navigate(['/userdashboard']);
+      //this.router.navigate(['/userdashboard']);
     }
+    
   }
   login():void{
     this.storage.set('loggedIn', true);
-    this.router.navigate(['/userdashboard']);
+    //this.router.navigate(['/userdashboard']);
   }
   
+ 
+  
 }
+
+
