@@ -10,6 +10,8 @@ import { UserdashboardTwoComponent } from './userdashboard-two/userdashboard-two
 import { NumberToWordsPipe } from '../number-to-words.pipe';
 import {UserprojectchildComponent} from './userprojectchild/userprojectchild.component';
 import {CheckboxprinterComponent} from './checkboxprinter/checkboxprinter.component';
+import {UserprojectdetailsComponent} from './userprojectdetails/userprojectdetails.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,17 @@ import {CheckboxprinterComponent} from './checkboxprinter/checkboxprinter.compon
     UserdashboardTwoComponent,
     NumberToWordsPipe,
     UserprojectchildComponent,
-    CheckboxprinterComponent
+    CheckboxprinterComponent,
+    UserprojectdetailsComponent,
+    
+
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
-  exports : [UserdashboardComponent, MyprofileComponent, UseraboutComponent, ProjectsComponent, UserdashboardTwoComponent, UserprojectchildComponent, CheckboxprinterComponent],
+  exports : [UserdashboardComponent, MyprofileComponent, UseraboutComponent, ProjectsComponent, UserdashboardTwoComponent, UserprojectchildComponent, CheckboxprinterComponent,UserprojectdetailsComponent],
   //providers : [UserdashboardService]
 })
 export class AdminModule { }
