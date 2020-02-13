@@ -105,6 +105,7 @@ import { UserdashboardTwoComponent } from './admin/userdashboard-two/userdashboa
 import { AgGridModule } from 'ag-grid-angular';
 import {UserInterceptor} from './userinterceptor';
 import { UsersignupComponent } from './usersignup/usersignup.component';
+import { ConfirmpasswordDirective } from './confirmpassword.directive';
 
 
 
@@ -207,6 +208,7 @@ import { UsersignupComponent } from './usersignup/usersignup.component';
     UsernavheaderComponent,
     UserloginComponent,
     UsersignupComponent,
+    ConfirmpasswordDirective,
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,7 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import {UserdashboardTwoComponent} from './admin/userdashboard-two/userdashboard-two.component';
 import {PermissionserviceService} from './permissionservice.service';
 import {UsersignupComponent} from './usersignup/usersignup.component';
+import {UserprojectdetailsComponent} from './admin/userprojectdetails/userprojectdetails.component'
 
 const routes: Routes = [
  
@@ -60,6 +61,8 @@ const routes: Routes = [
     canActivate: [PermissionserviceService]
   },
   {path:'usersignup', component: UsersignupComponent},
+
+  {path:'projects/view/:projectId', component: UserprojectdetailsComponent}
   
   //{path:'attendanceFour', loadChildren:()=>BenchfourModule}
   
