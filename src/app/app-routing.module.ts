@@ -34,7 +34,8 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import {UserdashboardTwoComponent} from './admin/userdashboard-two/userdashboard-two.component';
 import {PermissionserviceService} from './permissionservice.service';
 import {UsersignupComponent} from './usersignup/usersignup.component';
-import {UserprojectdetailsComponent} from './admin/userprojectdetails/userprojectdetails.component'
+import {UserprojectdetailsComponent} from './admin/userprojectdetails/userprojectdetails.component';
+import {UseraggridComponent} from './admin/useraggrid/useraggrid.component';
 
 const routes: Routes = [
  
@@ -62,7 +63,7 @@ const routes: Routes = [
   },
   {path:'usersignup', component: UsersignupComponent},
 
-  {path:'projects/view/:projectId', component: UserprojectdetailsComponent}
+  {path : 'aggrid', component:UseraggridComponent},
   
   //{path:'attendanceFour', loadChildren:()=>BenchfourModule}
   

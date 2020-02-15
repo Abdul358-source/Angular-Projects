@@ -11,19 +11,14 @@ import { ProjectsService } from 'src/app/projects.service';
 export class UserprojectdetailsComponent implements OnInit {
 
   project : Projects;
-  pid : any;
+  pid : any
 
   constructor(private activatedroutes : ActivatedRoute, private projectservice : ProjectsService) { 
     this.project= new Projects();
   }
 
   ngOnInit() {
-    this.activatedroutes.params.subscribe((params)=>{
-      let pid = params["projectId"];
-      this.projectservice.getProjectByProjectId(pid).subscribe((proj : Projects)=>{
-        this.project = proj
-      });
-    });
+    
   }
 
 }

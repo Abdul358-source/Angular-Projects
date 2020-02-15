@@ -8,6 +8,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProjectsService {
+  getProjectByProjectId(pid: any) {
+    throw new Error("Method not implemented.");
+  }
 
   public MySubject:Subject<boolean>;
   private MyObservers:Observer<boolean>[]=[];

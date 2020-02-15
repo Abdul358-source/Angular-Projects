@@ -102,10 +102,11 @@ import { UsernavheaderComponent } from './usernavheader/usernavheader.component'
 import { AdminModule } from './admin/admin.module';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserdashboardTwoComponent } from './admin/userdashboard-two/userdashboard-two.component';
-import { AgGridModule } from 'ag-grid-angular';
 import {UserInterceptor} from './userinterceptor';
 import { UsersignupComponent } from './usersignup/usersignup.component';
 import { ConfirmpasswordDirective } from './confirmpassword.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -217,7 +218,8 @@ import { ConfirmpasswordDirective } from './confirmpassword.directive';
     HttpClientModule,
     ReactiveFormsModule,
     AdminModule,
-    AgGridModule.withComponents([])
+    
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: UserInterceptor, multi:true}],
   bootstrap: [AppComponent]
